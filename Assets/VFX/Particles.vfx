@@ -1150,7 +1150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b9e6b9139e58d4c957ec54595da7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UIIgnoredErrors: []
+  m_UIIgnoredErrors:
+  - WarningBoundsComputation
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614663}
@@ -1160,7 +1161,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614657}
   - {fileID: 8926484042661615224}
   - {fileID: 8926484042661615865}
-  m_UIPosition: {x: 756, y: 1564}
+  m_UIPosition: {x: 756, y: 1719}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -3480,7 +3481,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.5
+      m_SerializableObject: 0.3
     m_Space: 2147483647
   m_Property:
     name: B
@@ -12062,7 +12063,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 159, y: 1125}
+  m_UIPosition: {x: 167, y: 932}
   m_UICollapsed: 0
   m_UISuperCollapsed: 1
   m_InputSlots: []
@@ -12223,7 +12224,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 408, y: 1017}
+  m_UIPosition: {x: 284, y: 1001}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -12576,7 +12577,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661615531}
 --- !u!114 &8926484042661615481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13738,7 +13740,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661615480}
 --- !u!114 &8926484042661615532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19305,7 +19308,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615806}
   m_OutputSlots:
   - {fileID: 8926484042661615807}
-  m_Disabled: 0
+  m_Disabled: 1
   mode: 0
   clampToOne: 1
 --- !u!114 &8926484042661615806

@@ -16,9 +16,11 @@ public class TestMoph : MonoBehaviour
     Vector3 origin;
     Vector3 norigin;
     float Count;
+    bool isChange;
     // Start is called before the first frame update
     void Start()
     {
+        isChange = false;
         //ÉÇÉfÉãÇÃÇ∏ÇÍÇñ≥óùÇ‚ÇËíºÇ∑
         origin = transform.position;
         Count = 0;
@@ -29,7 +31,7 @@ public class TestMoph : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (change)
+        if (change && !isChange)
         {
             ChangeForm();
         }
@@ -39,6 +41,7 @@ public class TestMoph : MonoBehaviour
     /// </summary>
     public void ChangeForm()
     {
+        isChange = true;
         StartCoroutine(Transforming());
     }
 
@@ -46,14 +49,7 @@ public class TestMoph : MonoBehaviour
     {
         change = false;
         yield return StartCoroutine(StartNoise());
-        if (Count == 1)
-        {
-            Count = 0;
-        }
-        else
-        {
-            Count = 1;
-        }
+        yield return StartCoroutine(ChangeParticlePosition());
         //Ç∆ÇËÇ†Ç¶Ç∏yé≤Ç∏ÇÍÇñ≥óùÇ‚ÇËèCê≥
         if (Count == 0)
         {
@@ -64,8 +60,33 @@ public class TestMoph : MonoBehaviour
             transform.position = new Vector3(transform.position.x, origin.y, transform.position.z);
         }
         Debug.Log("s");
-        _visualEffect.SetFloat(changesourceName, Count);
+        //_visualEffect.SetFloat(changesourceName, Count);
         yield return StartCoroutine(EndNoise());
+        isChange = false;
+    }
+
+    IEnumerator ChangeParticlePosition()
+    {
+        if (Count >= 1)
+        {
+            while (Count > 0)
+            {
+                yield return null;
+                Count -= 0.003f;
+                _visualEffect.SetFloat(changesourceName, Count);
+            }
+            Count = 0;
+        }
+        else if(Count <= 0)
+        {
+            while (Count <= 1)
+            {
+                yield return null;
+                Count += 0.003f;
+                _visualEffect.SetFloat(changesourceName, Count);
+            }
+            Count = 1;
+        }
     }
 
     IEnumerator StartNoise()

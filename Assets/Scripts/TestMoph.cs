@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.InputSystem;
 
+
 public class TestMoph : MonoBehaviour
 {
     [SerializeField] VisualEffect _visualEffect;
@@ -11,7 +12,9 @@ public class TestMoph : MonoBehaviour
     [SerializeField] string changesourceName;
     [SerializeField] string noiseName = "Noise";
     [SerializeField, Range(0, 300)] float noiseField;
-    [SerializeField] bool change; 
+    [SerializeField] bool change;
+    [SerializeField] PlayerInput playerInput;
+    InputAction inputAction;
     //ƒ‚ƒfƒ‹‚ÌÀ•W‚ª‚¸‚ê‚Ä‚¢‚é‚½‚ß‚»‚Ì•ª‚¾‚¯’²®‚·‚é‚½‚ß‚Ì•Ï”
     Vector3 origin;
     Vector3 norigin;
@@ -20,6 +23,7 @@ public class TestMoph : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inputAction = playerInput.actions["Change"];
         isChange = false;
         //ƒ‚ƒfƒ‹‚Ì‚¸‚ê‚ğ–³—‚â‚è’¼‚·
         origin = transform.position;
@@ -31,6 +35,7 @@ public class TestMoph : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        change = inputAction.ReadValue<float>() > 0;
         if (change && !isChange)
         {
             ChangeForm();
